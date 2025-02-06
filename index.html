@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Logging and Registration</title>
+    <link
+      href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <div class="container">
+      <div class="form-box login">
+        <form action="">
+          <h1>Login</h1>
+          <div class="input-box">
+            <input type="text" placeholder="UserName" required id="username" />
+            <label for="username">Full Name</label>
+            <i class="bx bxs-user"></i>
+          </div>
+          <div class="input-box">
+            <input
+              type="password"
+              placeholder="Password"
+              required
+              id="password"
+            />
+            <label for="password">Password</label>
+            <i class="bx bxs-lock-alt"></i>
+          </div>
+          <div class="forgot-link">
+            <a href="#">Forgot password</a>
+          </div>
+          <button type="submit" class="btn">Login</button>
+          <p>Or Login with Social Platforms</p>
+          <div class="social-icons">
+            <a href="#"><i class="bx bxl-google"></i></a>
+            <a href="#"><i class="bx bxl-facebook"></i></a>
+            <a href="#"><i class="bx bxl-github"></i></a>
+            <a href="#"><i class="bx bxl-linkedin"></i></a>
+          </div>
+        </form>
+      </div>
+
+      <div class="form-box register">
+        <form action="" id="registerForm">
+          <h1>Registration</h1>
+          <div class="input-box reg">
+            <div class="single-input">
+              <input
+                type="text"
+                id="fullname"
+                placeholder="Full Name"
+                required
+              />
+            </div>
+            <div class="double-input">
+              <div class="input-wrapper">
+                <input
+                  type="text"
+                  id="firstname"
+                  placeholder="First Name"
+                  required
+                />
+                <label for="firstname">First Name</label>
+                <div class="error-message"></div>
+                <!-- رسالة الخطأ -->
+                <i class="bx bxs-x-circle error-icon"></i>
+                <!-- أيقونة الخطأ -->
+                <i class="bx bx-check-circle success-icon"></i>
+                <!-- أيقونة النجاح -->
+              </div>
+              <div class="input-wrapper">
+                <input
+                  type="text"
+                  id="lastname"
+                  placeholder="Last Name"
+                  required
+                />
+                <label for="lastname">Last Name</label>
+                <div class="error-message"></div>
+                <!-- رسالة الخطأ -->
+                <i class="bx bxs-x-circle error-icon"></i>
+                <!-- أيقونة الخطأ -->
+                <i class="bx bx-check-circle success-icon"></i>
+                <!-- أيقونة النجاح -->
+              </div>
+            </div>
+            <i class="bx bxs-user"></i>
+          </div>
+          <div class="input-box">
+            <input
+              type="email"
+              placeholder="eerir@email.com"
+              required
+              id="email"
+            />
+            <label for="email">Email</label>
+            <div class="error-message" id="email-error"></div>
+            <i class="bx bxs-x-circle error-icon"></i>
+            <i class="bx bx-check-circle success-icon"></i>
+            <i class="bx bxs-envelope"></i>
+          </div>
+          <div class="input-box">
+            <input
+              type="password"
+              placeholder="Password"
+              required
+              id="passwordR"
+            />
+            <label for="passwordR">Password</label>
+            <div class="error-message"></div>
+            <i class="bx bxs-x-circle error-icon"></i>
+            <i class="bx bx-check-circle success-icon"></i>
+            <i class="bx bxs-lock-alt"></i>
+            <i class="bx bx-show show-password"></i>
+          </div>
+          <span class="password-strength">
+            <span class="bar"><i class="bx bx-minus"></i></span>
+            <span class="bar"><i class="bx bx-minus"></i></span>
+            <span class="bar"><i class="bx bx-minus"></i></span>
+          </span>
+          <span class="password-strength-text"></span>
+          <button type="submit" class="btn">Register</button>
+          <p>Or Register with Social Platforms</p>
+          <div class="social-icons">
+            <a href="#"><i class="bx bxl-google"></i></a>
+            <a href="#"><i class="bx bxl-facebook"></i></a>
+            <a href="#"><i class="bx bxl-github"></i></a>
+            <a href="#"><i class="bx bxl-linkedin"></i></a>
+          </div>
+        </form>
+      </div>
+      <div class="toggle-box">
+        <div class="toggle-panel toggle-left">
+          <h1>Hello, Welcome</h1>
+          <p>Don't have any account?</p>
+          <button class="btn register-btn">Register</button>
+        </div>
+        <div class="toggle-panel toggle-right">
+          <h1>Welcome back!</h1>
+          <p>Already have any account?</p>
+          <button class="btn login-btn">Login</button>
+        </div>
+      </div>
+    </div>
+    <script src="script.js"></script>
+  </body>
+</html>
