@@ -63,7 +63,6 @@ emailInput.addEventListener("blur", () => {
 
 passwordInput.addEventListener("input", () => {
   const password = passwordInput.value;
-  console.log(password);
   const strength = checkPasswordStrength(password);
 
   updatePasswordStrengthBars(strength);
@@ -133,16 +132,39 @@ showPasswordIcon.addEventListener("click", () => {
     showPasswordIcon.classList.add("bx-show");
   }
 });
-
 registerForm.addEventListener("submit", (event) => {
   event.preventDefault();
+  console.log("Register button clicked");
 
-  const firstName = firstNameInput.value;
-  const lastName = lastNameInput.value;
-  const email = emailInput.value;
+  const firstName = firstNameInput.value.trim();
+  const lastName = lastNameInput.value.trim();
+  const email = emailInput.value.trim();
   const password = passwordInput.value;
 
-  const fullName = firstName + lastName;
+  if (!firstName || !lastName || !email || !password) {
+    alert("Please fill in all fields.");
+    return;
+  }
+
+  const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+  if (!emailPattern.test(email)) {
+    alert("Please enter a valid email address.");
+    return;
+  }
+
+  const passwordStrength = checkPasswordStrength(password);
+  if (passwordStrength < 3) {
+    alert("Password is too weak. Please use a stronger password.");
+    return;
+  }
+
+  const existingData = JSON.parse(localStorage.getItem("userData"));
+  if (existingData && existingData.email === email) {
+    alert("You are already registered with this email!");
+    return;
+  }
+
+  const fullName = `${firstName} ${lastName}`;
   const userData = {
     fullName,
     email,
@@ -150,10 +172,16 @@ registerForm.addEventListener("submit", (event) => {
   };
 
   localStorage.setItem("userData", JSON.stringify(userData));
-  alert("Done");
+  alert("Registration successful!");
 
   firstNameInput.value = "";
   lastNameInput.value = "";
   emailInput.value = "";
   passwordInput.value = "";
+  errorIcon.style.display = "none";
+  successIcon.style.display = "none";
+  document.querySelector(".password-strength").style.display = "none";
+  passwordStrengthText.style.display = "none";
+
+  container.classList.remove("active");
 });
